@@ -2,9 +2,12 @@
 
 ## Overview
 
-This code installs and maintains a gitlab repo using gitlab comminity docker images. This requires Docker engine and docker-compose to be installed.
+This code installs and maintains a gitlab repo using gitlab community docker images.
 
-## Install Docker
+
+## Requirements
+
+This requires Docker engine and docker-compose to be installed.
 
 See docker documentation to [install Docker](https://docs.docker.com/install/) engine.
 
