@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+#copy SSL resources
+# cp -rf /etc/gitlab-tmp/ssl /etc/gitlab/ssl
+# chmod -R 400 /etc/gitlab/ssl
+# rm -rf /etc/gitlab-tmp/ssl
+
+#test if a new version has been installed
+
+echo "user: -----------------------------------------------"
+id
+echo "Will access $GITLAB_VOLUME/gitlab-version"
+ls -al "$GITLAB_VOLUME/gitlab-version"
+echo "-----------------------------------------------------"
+
+
+if [ -f "$GITLAB_VOLUME/gitlab-version" ]; then
+  gitlabCurrentVersion=$(cat "$GITLAB_VOLUME/gitlab-version")
+  if [ "$gitlabCurrentVersion" != "$GITLAB_VERSION" ]; then
+    echo "Will copy version -$GITLAB_VERSION- @ $GITLAB_VOLUME/gitlab-version"
+    echo "cp -a '$GITLAB_VOLUME/$gitlabCurrentVersion/.' '$GITLAB_DIR/'"
+    cp -a "$GITLAB_VOLUME/$gitlabCurrentVersion/." "$GITLAB_DIR/"
+  fi
+else
+  gitlabCurrentVersion="no previous version installed"
+  echo "Will create version -$GITLAB_VERSION- @ $GITLAB_VOLUME/gitlab-version"
+fi
+
+echo "Current gitlab version: $gitlabCurrentVersion"
+
+echo "$GITLAB_VERSION" > "$GITLAB_VOLUME/gitlab-version"
+
+GROUP=$(ls -ld $GITLAB_DIR | awk '{print $4}' )
+
+echo $GROUP
+
+#change volume access rigths
+usermod -aG $GROUP git
+
+update-permissions
+
+#launch gitlab
+#tail -f /dev/null
+bash /assets/wrapper
