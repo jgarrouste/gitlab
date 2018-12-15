@@ -51,6 +51,7 @@ services:
     volumes:
         - '${GITLAB_VOLUME}/${GITLAB_VERSION}/config:/etc/gitlab'
         - '${GITLAB_VOLUME}/${GITLAB_VERSION}/data:/var/opt/gitlab'
+#       needed if certificates are required outside the container (e.g for a SSL reverse proxy)
         - '${SSL}/etc/letsencrypt:/etc/gitlab/ssl/letsencrypt'
 #       needed for entrypoint to access GITLAB_VOLUME
         - '${GITLAB_VOLUME}/:${GITLAB_VOLUME}'

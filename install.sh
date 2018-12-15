@@ -159,8 +159,10 @@ read value
 value=$(echo $value | tr '[:upper:]' '[:lower:]')
 if [ "$value" = "y" ]; then
   write_properties
-  docker-compose build --no-
-  docker tag
+  docker-compose build --no-cache
+  echo "To launch gitlab, enter the following commands:"
+  echo "docker-compose stop"
+  echo "docker-compose up -d"
 else
-  echo ":-("
+  exit 0
 fi
