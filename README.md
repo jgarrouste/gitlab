@@ -9,9 +9,8 @@ This code installs and maintains a gitlab repo using gitlab comminity docker ima
 
 ```shell
 $ cd /path/to/download/gitlab/installer`
-$ git clone https://github.com/philsavary/Gitlab.git`
-$ cd Gitlab
-$ sh install.sh```
+$ git clone https://github.com/philsavary/gitlab.git
+$ cd gitlab```
 
 
 ## Upgrade gitlab version
