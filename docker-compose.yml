@@ -35,7 +35,6 @@ services:
         gitlab_rails['lfs_enabled'] = true
         gitlab_rails['registry_path'] = '${GITLAB_VOLUME}/registry'
 
-
         external_url 'https://${GITLAB_DOMAIN}'
         registry_external_url 'https://${GITLAB_REGISTRY_DOMAIN}:4567'
         letsencrypt['enable'] = true

@@ -13,6 +13,8 @@ See docker documentation to [install Docker](https://docs.docker.com/install/) e
 
 See docker-compose documentation to [install Docker-compose](https://docs.docker.com/compose/install/) tool.
 
+[Gitlab community versions](https://hub.docker.com/r/gitlab/gitlab-ce) are available on Dockerhub.
+
 
 ## Install GitLab
 
@@ -25,6 +27,6 @@ $ sh install.sh
 ```
 
 
+## Upgrade & rollback gitlab version
 
-
-## Upgrade gitlab version
+To upgrade or rollback to a new or previous gitlab version, just run install.sh script with the desired [gitlab version tag](https://hub.docker.com/r/gitlab/gitlab-ce/tags).
