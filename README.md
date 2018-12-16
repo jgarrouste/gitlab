@@ -24,6 +24,10 @@ $ cd /path/to/download/gitlab/installer
 $ git clone https://github.com/philsavary/gitlab.git
 $ cd gitlab
 $ sh install.sh
+...
+$ docker-compose stop         // if GitLab is already running
+$ docker-compose up -d        // to start GitLab
+
 ```
 Installer will prompt:
 
